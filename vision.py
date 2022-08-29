@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 class Model:
 
     def find(self, model):
@@ -32,7 +31,7 @@ class Needle:
 
         rectangles = []
 
-        for loc in locations:
+        for loc in locations:   
             rect = [int(loc[0]), int(loc[1]), self.w, self.h]
             rectangles.append(rect)
             rectangles.append(rect)
@@ -40,10 +39,3 @@ class Needle:
         rectangles, _ = cv2.groupRectangles(rectangles, 1, 0.5)
 
         return rectangles
-    
-    def draw_rectangles(self, haystack_im, rectangles):
-        for x, y, w, h in rectangles:
-            pt1 = (x, y)
-            pt2 = (x + w, y + h)
-            cv2.rectangle(haystack_im, pt1, pt2, (0, 255, 0), cv2.LINE_8)
-

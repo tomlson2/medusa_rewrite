@@ -14,3 +14,10 @@ def avg_pixel(im):
     avg_row = np.average(im, axis=0)
     avg_pixel = np.average(avg_row, axis=0)
     return avg_pixel
+
+
+def draw_rectangles(im, rectangles):
+    for x, y, w, h in rectangles:
+        pt1 = (x, y)
+        pt2 = (x + w, y + h)
+        cv2.rectangle(im, pt1, pt2, (0, 255, 0), cv2.LINE_4)
